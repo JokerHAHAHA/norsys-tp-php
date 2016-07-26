@@ -8,10 +8,7 @@
 	<link rel="stylesheet" href="css/navBar.css">
 </head>
 <body>
-
 	<?php include 'includes/navBar.php' ?>
-
-	<button class="add-user" href="templates/addUser.php"></button>
 
 </body>
 </html>
