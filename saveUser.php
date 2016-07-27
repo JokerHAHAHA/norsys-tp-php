@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <!-- head -->
-<?php include 'includes/head.php' ?>
+<?php include 'includes/head.php'; ?>
 <body>
 
 	<body>
@@ -19,7 +19,7 @@
 		VALUES ($name, $firstname, $email)";
 
     	// use exec() because no results are returned
-		$conn->exec($sql);
+		$conn->query($sql);
 
 		$conn = null;
 

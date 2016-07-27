@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <!-- head -->
-<?php include 'includes/head.php' ?>
+<?php include 'includes/head.php'; ?>
 <body class="add-user">
 
-	<?php include 'includes/navBar.php' ?>
+	<?php include 'includes/navBar.php'; ?>
 
 	<h1 class="center">AJOUTER UN UTILISATEUR</h1>
 

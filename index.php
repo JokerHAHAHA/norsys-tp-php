@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <!-- head -->
-<?php include 'includes/head.php' ?>
+<?php include 'includes/head.php'; ?>
 <body>
 
 	<!-- navbar -->
-	<?php include 'includes/navBar.php' ?>
+	<?php include 'includes/navBar.php'; ?>
 
 	<!-- add user button -->
 	<div class="row">
