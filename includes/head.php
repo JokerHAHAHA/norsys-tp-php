@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/ticket.css">
 
 	<!-- JavaScript -->
-	<script type="text/javascript" src="fucntions/fctSaveUser.js"></script>
+	<script type="text/javascript" src="functions/fctSaveUser.js"></script>
 
 	
 	<!-- JQUERY -->
