@@ -1,0 +1,22 @@
+/*==========================================
+ADD USER
+==========================================*/
+
+.btn-add-user {
+	display: inline-block;
+	height: 100px;
+	text-align: center;
+	border: 2px solid #d47c0b;
+	margin-top: 5%;
+	margin-left: 2%!important;
+}
+.add-user label {
+	font-size: 150%!important;
+	color: #d47c0b!important;
+}
+.add-user input:focus {
+	border-bottom: 2px solid #d47c0b!important;
+	box-shadow: none!important;
+}
+
+/*=================END ADD USER=========================*/

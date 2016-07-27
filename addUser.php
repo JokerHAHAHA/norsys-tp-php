@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<title>Kanban</title>
-
-	<link rel="stylesheet" href="../css/global.css">
-	<link rel="stylesheet" href="../css/navBar.css">
-</head>
-<body>
+<!-- head -->
+<?php include 'includes/head.php' ?>
+<body class="add-user">
 	<?php include 'includes/navBar.php' ?>
 
-	<h1>AJOUTER UN UTILISATEUR</h1>
+	<h1 class="center">AJOUTER UN UTILISATEUR</h1>
+
+	<div class="row">
+		<form class="col s12" method="post" action="./saveUser.php">
+
+			<div class="row margin-top-5">
+				<!-- name form -->
+				<div class="input-field col s6">
+					<input type="text" name="name">
+					<label>Quel est son nom ?</label>
+				</div>
+
+				<!-- firstname form -->
+				<div class="input-field col s6">
+					<input type="text" name="firstname">
+					<label>Et son prénom ?</label>
+				</div>
+			</div>
+
+			<!-- email part -->
+			<div class="row margin-top-5">
+				<div class="input-field col s12">
+					<input id="email" type="email" name="email">
+					<label>Et ici son e-mail</label>
+				</div>
+			</div>
+
+			<button type="submit" class="waves-effect waves-light btn">ENREGISTRER</button>
+
+		</form>
+	</div>
 </body>
 </html>
