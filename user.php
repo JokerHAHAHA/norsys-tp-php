@@ -6,5 +6,7 @@
 
 	<?php include 'includes/navBar.php' ?>
 
+	
+
 </body>
 </html>
