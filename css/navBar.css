@@ -1,17 +1,21 @@
 .nav-bar {
 	background-color: #d47c0b;
 }
+.hover,
 .nav-bar li {
 	display: inline-block;
 	width: 24%;
 	background-color: #d47c0b;
 	font-family: Calibri;
 	font-size: 150%;
-	color: white;
+	color: #000;
 	text-align: center;
 	line-height: 60px;
 }
+.hover {
+	color: #fff!important;
+}
 .hover:hover {
 	background-color: white;
-	color: #d47c0b;
+	color: #d47c0b!important;
 }

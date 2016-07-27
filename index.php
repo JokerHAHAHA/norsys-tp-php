@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<title>Kanban</title>
-
-	<link rel="stylesheet" href="css/global.css">
-	<link rel="stylesheet" href="css/navBar.css">
-</head>
+<!-- head -->
+<?php include 'includes/head.php' ?>
 <body>
 
+	<!-- navbar -->
 	<?php include 'includes/navBar.php' ?>
 
-	<button class="add-user" href="templates/addUser.php"></button>
+	<!-- add user button -->
+	<label>Utilisateur</label>
+	<a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">+</i></a>
+
 
 </body>
 </html>
