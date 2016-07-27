@@ -9,18 +9,18 @@
 	<h1 class="center">AJOUTER UN UTILISATEUR</h1>
 
 	<div class="row">
-		<form class="col s12" method="post" action="./saveUser.php">
+		<form class="col s12" method="post" onsubmit="addUser()">
 
 			<div class="row margin-top-5">
 				<!-- name form -->
 				<div class="input-field col s6">
-					<input type="text" name="name">
+					<input id="name" type="text" name="name">
 					<label>Quel est son nom ?</label>
 				</div>
 
 				<!-- firstname form -->
 				<div class="input-field col s6">
-					<input type="text" name="firstname">
+					<input id="firstname" type="text" name="firstname">
 					<label>Et son prénom ?</label>
 				</div>
 			</div>
