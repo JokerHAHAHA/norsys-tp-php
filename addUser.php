@@ -28,10 +28,12 @@
 			<!-- email part -->
 			<div class="row margin-top-5">
 				<div class="input-field col s12">
-					<input id="email" type="email" name="email">
+					<input id="email" type="text" name="email">
 					<label>Et ici son e-mail</label>
 				</div>
 			</div>
+
+			<div id="errorMessage"></div>
 
 			<button type="submit" class="waves-effect waves-light btn">ENREGISTRER</button>
 

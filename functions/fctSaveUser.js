@@ -17,11 +17,14 @@ function addUser () {
 	// Access the onreadystatechange event for the XMLHttpRequest object
 	req.onreadystatechange = function() {
 		if(req.readyState == 4 && req.status == 200) {
-			var return_data = req.responseText;
-			document.getElementById("status").innerHTML = return_data;
+			document.getElementById('errorMessage').innerHTML = req.responseText;
 		}
 	}
 
 	// Send the data to PHP now... and wait for response to update the status div
 	req.send(vars);
+}
+
+function validate (inputEmail) {
+
 }
