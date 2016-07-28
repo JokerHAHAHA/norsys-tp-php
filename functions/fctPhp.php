@@ -17,4 +17,18 @@ function checkEmail($email) {
 	}
 }
 
+function getEntireTable($tableName){
+
+	include 'includes/connectDB.php';
+
+	$sql = "SELECT * FROM " . $tableName;
+
+	$resp = $conn->query($sql)->fetchAll();
+
+	$conn = null;
+
+	return $resp;
+
+}
+
 ?>

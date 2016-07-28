@@ -13,7 +13,6 @@
 
 	<!-- JavaScript -->
 	<script type="text/javascript" src="functions/fctSaveUser.js"></script>
-
 	
 	<!-- JQUERY -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
