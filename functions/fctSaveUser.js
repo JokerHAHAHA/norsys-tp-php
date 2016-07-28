@@ -24,7 +24,3 @@ function addUser () {
 	// Send the data to PHP now... and wait for response to update the status div
 	req.send(vars);
 }
-
-function validate (inputEmail) {
-
-}

@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <!-- head -->
@@ -16,8 +20,7 @@
 		$firstname = "'" . checkText($_POST['firstname']) . "'";
 		
 		if (checkEmail($_POST['email']) == false) {
-			echo "le mail est mauvais";
-			exit;
+			$_SESSION['error'] = "Votre adresse e-mail est incorrecte : " . $_POST['email'];
 		} else {
 			$email = "'" . checkEmail($_POST['email']) . "'";
 

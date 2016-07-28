@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <!-- head -->
@@ -33,9 +37,17 @@
 				</div>
 			</div>
 
-			<div id="errorMessage"></div>
+			<?php 
 
-			<button type="submit" class="waves-effect waves-light btn">ENREGISTRER</button>
+			if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
+				echo '<p class="red-text">' . $_SESSION['error'] . '</p>';
+				echo '<p class="red-text">Veuillez réessayer avec une autre adresse mail</p>';
+				unset($_SESSION['error']);
+			}
+
+			?>
+
+			<button id="submit" type="submit" class="waves-effect waves-light btn">ENREGISTRER</button>
 
 		</form>
 	</div>
