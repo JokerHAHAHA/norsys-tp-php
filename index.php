@@ -14,13 +14,13 @@
 </script>
 <body>
 
-	<!-- navbar -->
+	<!-- includes -->
 	<?php
 	include 'includes/navBar.php'; 
 	include 'functions/fctPhp.php'; 
 	include 'classes.php'; 
+	print_r($_SESSION['check']);
 	?>
-
 	<!-- add user button -->
 	<div class="row">
 		<div class="btn-add-user col s1">
@@ -38,53 +38,72 @@
 		</div>
 	</div>
 
+	<table class="kanban centered">
+		<thead>
+			<tr>
+				<th>TODO</th>
+				<th>IN PROCESS</th>
+				<th>DONE</th>
+			</tr>
+		</thead>
+	</table>
+
+
+
+
+
+
+
+
 	<!-- Modal Structure -->
-	<div id="addTicketModal" class="modal modal-fixed-footer">
+	<div id="addTicketModal" class="modal modal-fixed-footer modal-add-ticket">
 		<div class="modal-content">
 			<h4 class="center">NOUVEAU TICKET</h4>
 
-			<div class="row margin-top-10">
-				<div class="input-field col s5 offset-s1">
-					<select>
-						<option value="" disabled selected>Selectionner un collègue</option>
-						<?php
-						foreach (getEntireTable('users') as $user) {
-							echo '<option value="">' . $user['first_name']. ' ' . $user['name'] . '</option>';
-						}
-						?>
-					</select>
-					<label>Créé par : </label>
+			<form method="post" onsubmit="addTicket()">
+				<div class="row margin-top-10">
+					<div class="input-field col s5 offset-s1">
+						<select id="maker">
+							<option value="" disabled selected>Selectionner un collègue</option>
+							<?php
+							foreach (getEntireTable('users') as $user) {
+								echo '<option value="' . $user['first_name'] . ' ' . $user['name'] . '">' . $user['first_name'] . ' ' . $user['name'] . '</option>';
+							}
+							?>
+						</select>
+						<label>Créé par : </label>
+					</div>
+
+					<div class="input-field col s5">
+						<select id="worker">
+							<option value="" disabled selected>Selectionner un collègue</option>
+							<?php
+							foreach (getEntireTable('users') as $user) {
+								echo '<option value="' . $user['first_name'] . ' ' . $user['name'] . '">' . $user['first_name'] . ' ' . $user['name'] . '</option>';
+							}
+							?>
+						</select>
+						<label>Assigné à : </label>
+					</div>
 				</div>
 
-				<div class="input-field col s5">
-					<select>
-						<option value="" disabled selected>Selectionner un collègue</option>
-						<?php
-						foreach (getEntireTable('users') as $user) {
-							echo '<option value="">' . $user['first_name']. ' ' . $user['name'] . '</option>';
-						}
-						?>
-					</select>
-					<label>Assigné à : </label>
-				</div>
-			</div>
-
-			<!-- description area -->
-			<div class="row margin-top-10">
-				<form class="col s12">
-					<div class="row">
-						<div class="input-field col s12">
-							<textarea id="description" class="materialize-textarea"></textarea>
-							<label for="description">Description du ticket</label>
+				<!-- description area -->
+				<div class="row margin-top-10">
+					<div class="col s12">
+						<div class="row">
+							<div class="input-field col s12">
+								<textarea id="description" class="materialize-textarea"></textarea>
+								<label for="description">Description du ticket</label>
+							</div>
 						</div>
 					</div>
-				</form>
-			</div>
+				</div>
 
-		</div>
-		<div class="modal-footer">
-			<a type="submit" onsubmit="" class="modal-action modal-close waves-effect waves-green btn-flat ">Enregistrer</a>
-			<a href="./index.php" class="modal-action modal-close waves-effect waves-green btn-flat ">Annuler</a>
+				<div class="modal-footer">
+					<button type="submit" id="submit" class="modal-action modal-close waves-effect waves-green btn-flat">Enregistrer</button>
+					<a href="./index.php" class="modal-action modal-close waves-effect waves-green btn-flat ">Annuler</a>
+				</div>
+			</form>
 		</div>
 	</div>
 

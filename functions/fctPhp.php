@@ -19,11 +19,19 @@ function checkEmail($email) {
 
 function getEntireTable($tableName){
 
-	include 'includes/connectDB.php';
+	try
+	{
+		include 'includes/connectDB.php';
 
-	$sql = "SELECT * FROM " . $tableName;
-
-	$resp = $conn->query($sql)->fetchAll();
+		$stmt = $conn->prepare("SELECT * FROM users");
+		if ($stmt->execute()) {
+			$resp = $stmt->fetchAll();		
+		}
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
 
 	$conn = null;
 
@@ -36,33 +44,50 @@ function postNewUser($name, $firstname, $email){
 	{	
 		include 'includes/connectDB.php';
 
-	// prepare sql and bind parameters
 		$stmt = $conn->prepare("INSERT INTO users (name, first_name, email) 
 			VALUES (:name, :first_name, :email)");
 		$stmt->bindParam(':name', $name);
 		$stmt->bindParam(':first_name', $firstname);
 		$stmt->bindParam(':email', $email);
 
-    // insert another row
-		// $firstname = "Julie";
-		// $lastname = "Dooley";
-		// $email = "julie@example.com";
 		$stmt->execute();
 
-		echo "New records created successfully";
 	}
 	catch(PDOException $e)
 	{
 		echo "Error: " . $e->getMessage();
 	}
 
-	// $sql = "INSERT INTO users " . " (name, first_name, email)" . " VALUES (" . $name . ", ". $firstname . ", ". $email . ")";
+	$conn = null;
 
-	// $conn->query($sql);
+	return true;
+
+}
+
+function postNewTicket($maker, $worker, $description){
+	try
+	{	
+		include 'includes/connectDB.php';
+
+		$stmt = $conn->prepare("INSERT INTO tickets (maker, worker, description) 
+			VALUES (:maker, :worker, :description)");
+		$stmt->bindParam(':maker', $maker);
+		$stmt->bindParam(':worker', $worker);
+		$stmt->bindParam(':description', $description);
+
+		$stmt->execute();
+
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
 
 	$conn = null;
 
 	return true;
 
 }
-?>
+
+
+
