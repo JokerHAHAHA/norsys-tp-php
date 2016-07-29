@@ -1,9 +1,9 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "tuto_php";
+$servername = 'localhost';
+$username = 'root';
+$password = 'root';
+$dbname = 'tuto_php';
 
 try 
 {
@@ -19,4 +19,3 @@ catch(PDOException $e)
 {
 	echo $e->getMessage();
 }
-?>

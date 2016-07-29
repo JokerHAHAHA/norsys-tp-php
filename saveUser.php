@@ -17,3 +17,4 @@ if (checkEmail($_POST['email']) == false) {
 	postNewUser('users', $newUser->getName(), $newUser->getFirstName(), $newUser->getEmail());
 }
 
+

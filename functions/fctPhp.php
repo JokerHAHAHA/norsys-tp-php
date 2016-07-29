@@ -18,7 +18,7 @@ function checkEmail($email) {
 }
 
 function getEntireTable($tableName){
-
+	
 	include 'includes/connectDB.php';
 
 	$sql = "SELECT * FROM " . $tableName;
@@ -44,4 +44,4 @@ function postNewUser($tableName, $name, $firstname, $email){
 	return true;
 
 }
-?>
+

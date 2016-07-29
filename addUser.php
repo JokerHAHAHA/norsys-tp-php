@@ -38,6 +38,7 @@ session_start();
 			</div>
 
 			<?php
+
 			
 			if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 				echo '<p class="red-text">' . $_SESSION['error'] . '</p>';

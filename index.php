@@ -18,7 +18,7 @@
 	<?php
 	include 'includes/navBar.php'; 
 	include 'functions/fctPhp.php'; 
-	include 'classes.php'; 
+	include 'classes/ticket.php'; 
 	?>
 
 	<!-- add user button -->
