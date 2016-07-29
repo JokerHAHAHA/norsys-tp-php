@@ -37,8 +37,10 @@ session_start();
 				</div>
 			</div>
 
-			<?php 
-
+			<?php
+			// include 'classes/user.php';
+			// $newUser = new User('hola', 'firstname', '$email');
+			// $_SESSION['error'] = $newUser->getName();
 			if (isset($_SESSION['error']) && !empty($_SESSION['error'])) {
 				echo '<p class="red-text">' . $_SESSION['error'] . '</p>';
 				echo '<p class="red-text">Veuillez réessayer avec une autre adresse mail</p>';

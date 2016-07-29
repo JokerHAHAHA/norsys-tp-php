@@ -31,4 +31,17 @@ function getEntireTable($tableName){
 
 }
 
+function postNewUser($tableName, $name, $firstname, $email){
+	
+	include 'includes/connectDB.php';
+
+	$sql = "INSERT INTO " . $tableName . " (name, first_name, email)" . " VALUES (" . $name . ", ". $firstname . ", ". $email . ")";
+
+	$conn->query($sql);
+
+	$conn = null;
+
+	return true;
+
+}
 ?>
