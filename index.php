@@ -38,12 +38,6 @@
 		</div>
 	</div>
 
-	<?php 
-	$testTicket = new Ticket("Jean", "Richard", "taratata la descrition c'est de la balle de bombe");
-	$testTicket->showMaker();
-	$testTicket->showWorker();
-	$testTicket->showDescription();
-	?>
 	<!-- Modal Structure -->
 	<div id="addTicketModal" class="modal modal-fixed-footer">
 		<div class="modal-content">

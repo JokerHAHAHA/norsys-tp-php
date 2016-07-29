@@ -31,13 +31,34 @@ function getEntireTable($tableName){
 
 }
 
-function postNewUser($tableName, $name, $firstname, $email){
-	
-	include 'includes/connectDB.php';
+function postNewUser($name, $firstname, $email){
+	try
+	{	
+		include 'includes/connectDB.php';
 
-	$sql = "INSERT INTO " . $tableName . " (name, first_name, email)" . " VALUES (" . $name . ", ". $firstname . ", ". $email . ")";
+	// prepare sql and bind parameters
+		$stmt = $conn->prepare("INSERT INTO users (name, first_name, email) 
+			VALUES (:name, :first_name, :email)");
+		$stmt->bindParam(':name', $name);
+		$stmt->bindParam(':first_name', $firstname);
+		$stmt->bindParam(':email', $email);
 
-	$conn->query($sql);
+    // insert another row
+		// $firstname = "Julie";
+		// $lastname = "Dooley";
+		// $email = "julie@example.com";
+		$stmt->execute();
+
+		echo "New records created successfully";
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+
+	// $sql = "INSERT INTO users " . " (name, first_name, email)" . " VALUES (" . $name . ", ". $firstname . ", ". $email . ")";
+
+	// $conn->query($sql);
 
 	$conn = null;
 
