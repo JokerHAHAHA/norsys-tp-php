@@ -19,5 +19,17 @@
     border-right: 5px solid #d47c0b;
 }
 .ticket {
+    display: inline-block;
     width: 33%;
+    height: 200px;
+}
+.description {
+    height: 90px;
+    overflow: scroll;
+}
+.dropdown-title {
+    line-height: 50px;
+}
+.dropdown-info {
+    line-height: 50px;
 }

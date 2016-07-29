@@ -24,6 +24,7 @@
 			}
 		});
 	});
+
 </script>
 <body>
 
@@ -52,8 +53,8 @@
 	</div>
 
 	<!-- kanban area -->
-	<div class="row margin-top-2">
-		<div class="kanban center col s12">
+	<div class="row margin-top-2 padding">
+		<div class="kanban center z-depth-3 col s12">
 
 			<!-- todo area -->
 			<div class="todo">
@@ -62,23 +63,27 @@
 				foreach (getEntireTable('tickets') as $ticket) {
 					?>
 					<!-- begining of ticket -->
-					<div id="draggable" class="draggable card blue-grey darken-0 ticket">
-						<div class="card-content white-text">
+					<div class="draggable card blue-grey darken-0 ticket">
+						<div class="card-content white-text padding">
 
 							<?php
-							echo '<span class="card-title">N°=' . $ticket['id'] . '</span>';
-							echo '<p>Description : <br />' . $ticket['description'] . '</p>';
+							echo '<span class="card-title">N°= ' . $ticket['id'] . '</span>';
+							echo '<p class="description padding">Description : <br />' . $ticket['description'] . '</p>';
 						}
 						?>
 					</div>
-					<div class="card-action">
-						<?php echo '<p>CREE PAR : <br />' . $ticket['maker'] . '</p><br />';?>
-						<?php echo '<p>ASSIGNE A : <br />' . $ticket['worker'] . '</p>';?>
+					<div class="padding">
+						<a class='dropdown-button btn orange' <?php echo "data-activates='info".$ticket['id']."'"?>>Info</a>
+						<ul <?php echo "id='info".$ticket['id']."'"?> class='dropdown-content'>
+							<li><p class="center dropdown-title"><b>CREE PAR</b></p></li>
+							<li><?php echo '<p class="center dropdown-info"><i>' . $ticket['maker'] . '</i></p>';?></li>
+							<li class="divider"></li>
+							<li><p class="center dropdown-title"><b>ASSIGNE A</b></p></li>
+							<li><?php echo '<p class="center dropdown-info"><i>' . $ticket['worker'] . '</i></p>';?></li>
+						</ul>
 					</div>
 				</div>
 				<!-- end of ticket -->
-
-
 
 			</div>
 
