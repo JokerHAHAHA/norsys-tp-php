@@ -11,8 +11,7 @@
 	$(document).ready(function() {
 		$('select').material_select();
 	});
-</script>
-<script>
+
 	$(function() {
 		$( ".draggable" ).draggable({
 			containment: $('.restrict')
@@ -60,7 +59,7 @@
 
 			<!-- todo area -->
 			<div class="todo">
-				<h3 class="tittle">TO DO</h3>
+				<h3 class="tittle red-text">TO DO</h3>
 				<?php 
 				foreach (getEntireTable('tickets') as $ticket) {
 					?>
@@ -100,7 +99,7 @@
 
 			<!-- done area -->
 			<div class="done">
-				<h3 class="tittle">DONE</h3>
+				<h3 class="tittle green-text">DONE</h3>
 				<div>
 
 				</div>
