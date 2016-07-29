@@ -1,9 +1,6 @@
 <?php
-		// Start the session
 session_start();
 
-		// connection DB
-		// include 'includes/connectDB.php';
 include 'functions/fctPhp.php';
 include 'classes/user.php';
 
@@ -16,8 +13,7 @@ if (checkEmail($_POST['email']) == false) {
 	$email = "'" . checkEmail($_POST['email']) . "'";
 
 	$newUser = new User($name, $firstname, $email);
-	$_SESSION['error'] = $newUser->getName();
 
-	postNewUser('users', $name, $firstname, $email);
+	postNewUser('users', $newUser->getName(), $newUser->getFirstName(), $newUser->getEmail());
 }
 
