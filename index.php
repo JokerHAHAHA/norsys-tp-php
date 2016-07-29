@@ -14,7 +14,9 @@
 </script>
 <script>
 	$(function() {
-		$( ".draggable" ).draggable();
+		$( ".draggable" ).draggable({
+			containment: $('.restrict')
+		});
 		$( "#droppable" ).droppable({
 			drop: function( event, ui ) {
 				$( this )
@@ -54,7 +56,7 @@
 
 	<!-- kanban area -->
 	<div class="row margin-top-2 padding">
-		<div class="kanban center z-depth-3 col s12">
+		<div class="kanban center z-depth-3 col s12 restrict">
 
 			<!-- todo area -->
 			<div class="todo">
@@ -65,24 +67,25 @@
 					<!-- begining of ticket -->
 					<div class="draggable card blue-grey darken-0 ticket">
 						<div class="card-content white-text padding">
-
 							<?php
 							echo '<span class="card-title">N°= ' . $ticket['id'] . '</span>';
 							echo '<p class="description padding">Description : <br />' . $ticket['description'] . '</p>';
-						}
-						?>
+							?>
+						</div>
+						<div class="padding">
+							<?php
+							echo '<a class="dropdown-button btn orange" data-activates="info'.$ticket['id'].'"'. '>Info</a>';
+							echo '<ul id="info'.$ticket['id'].'"'.'class="dropdown-content">';
+							?>
+								<li><p class="center dropdown-title"><b>CREE PAR</b></p></li>
+								<?php echo '<li><p class="center dropdown-info"><i>'.$ticket['maker'].'</i></p></li>';?>
+								<li class="divider"></li>
+								<li><p class="center dropdown-title"><b>ASSIGNE A</b></p></li>
+								<?php echo '<li><p class="center dropdown-info"><i>'.$ticket['worker'].'</i></p></li>';?>
+							</ul>
+						</div>
 					</div>
-					<div class="padding">
-						<a class='dropdown-button btn orange' <?php echo "data-activates='info".$ticket['id']."'"?>>Info</a>
-						<ul <?php echo "id='info".$ticket['id']."'"?> class='dropdown-content'>
-							<li><p class="center dropdown-title"><b>CREE PAR</b></p></li>
-							<li><?php echo '<p class="center dropdown-info"><i>' . $ticket['maker'] . '</i></p>';?></li>
-							<li class="divider"></li>
-							<li><p class="center dropdown-title"><b>ASSIGNE A</b></p></li>
-							<li><?php echo '<p class="center dropdown-info"><i>' . $ticket['worker'] . '</i></p>';?></li>
-						</ul>
-					</div>
-				</div>
+				<?php } ?>
 				<!-- end of ticket -->
 
 			</div>
