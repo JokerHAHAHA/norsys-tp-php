@@ -12,41 +12,93 @@
 		$('select').material_select();
 	});
 </script>
+<script>
+	$(function() {
+		$( ".draggable" ).draggable();
+		$( "#droppable" ).droppable({
+			drop: function( event, ui ) {
+				$( this )
+				.addClass( "ui-state-highlight" )
+				.find( "p" )
+				.html( "Dropped!" );
+			}
+		});
+	});
+</script>
 <body>
 
 	<!-- includes -->
 	<?php
 	include 'includes/navBar.php'; 
 	include 'functions/fctPhp.php'; 
-	include 'classes.php'; 
-	print_r($_SESSION['check']);
 	?>
-	<!-- add user button -->
+
+
+
+
+
 	<div class="row">
-		<div class="btn-add-user col s1">
+		<!-- add user button -->
+		<div class="btn-add-user col s1 offset-s4 margin-top-2">
 			<h6>UTILISATEUR</h6>
 			<a class="btn-floating btn-large waves-effect waves-light red" href="./addUser.php"><i class="material-icons">+</i></a>
 		</div>
-	</div>
 
-	<!-- add ticket button -->
-	<div class="row">
-
-		<div class="btn-add-ticket col s1">
+		<!-- add ticket button -->
+		<div class="btn-add-ticket col s1 offset-s1 margin-top-2">
 			<h6>TICKET</h6>
 			<a class="btn-floating btn-large waves-effect waves-light green modal-trigger" href="#addTicketModal"><i class="material-icons">+</i></a>
 		</div>
 	</div>
 
-	<table class="kanban centered">
-		<thead>
-			<tr>
-				<th>TODO</th>
-				<th>IN PROCESS</th>
-				<th>DONE</th>
-			</tr>
-		</thead>
-	</table>
+	<!-- kanban area -->
+	<div class="row margin-top-2">
+		<div class="kanban center col s12">
+
+			<!-- todo area -->
+			<div class="todo">
+				<h3 class="tittle">TO DO</h3>
+				<?php 
+				foreach (getEntireTable('tickets') as $ticket) {
+					?>
+					<!-- begining of ticket -->
+					<div id="draggable" class="draggable card blue-grey darken-0 ticket">
+						<div class="card-content white-text">
+
+							<?php
+							echo '<span class="card-title">N°=' . $ticket['id'] . '</span>';
+							echo '<p>Description : <br />' . $ticket['description'] . '</p>';
+						}
+						?>
+					</div>
+					<div class="card-action">
+						<?php echo '<p>CREE PAR : <br />' . $ticket['maker'] . '</p><br />';?>
+						<?php echo '<p>ASSIGNE A : <br />' . $ticket['worker'] . '</p>';?>
+					</div>
+				</div>
+				<!-- end of ticket -->
+
+
+
+			</div>
+
+			<!-- in progress area -->
+			<div id="droppable" class="process ui-widget-content">
+				<h3 class="tittle">IN PPROCESS</h3>
+				<div >
+
+				</div>
+			</div>
+
+			<!-- done area -->
+			<div class="done">
+				<h3 class="tittle">DONE</h3>
+				<div>
+
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 
@@ -67,7 +119,7 @@
 							<option value="" disabled selected>Selectionner un collègue</option>
 							<?php
 							foreach (getEntireTable('users') as $user) {
-								echo '<option value="' . $user['first_name'] . ' ' . $user['name'] . '">' . $user['first_name'] . ' ' . $user['name'] . '</option>';
+								echo '<option value="' . $user['first_name'] . '">' . $user['first_name'] . ' ' . $user['name'] . '</option>';
 							}
 							?>
 						</select>
@@ -79,7 +131,7 @@
 							<option value="" disabled selected>Selectionner un collègue</option>
 							<?php
 							foreach (getEntireTable('users') as $user) {
-								echo '<option value="' . $user['first_name'] . ' ' . $user['name'] . '">' . $user['first_name'] . ' ' . $user['name'] . '</option>';
+								echo '<option value="' . $user['first_name'] . '">' . $user['first_name'] . ' ' . $user['name'] . '</option>';
 							}
 							?>
 						</select>

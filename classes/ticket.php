@@ -5,6 +5,7 @@ class Ticket
 	private $description;
 	private $worker;
 	private $maker;
+	private $status = 'todo';
 
 	function __construct($maker, $worker, $description)
 	{
@@ -41,6 +42,16 @@ class Ticket
 	public function getDescription()
 	{
 		return $this->description;
+	}
+
+	/**
+	 * Get description
+	 * 
+	 * @return string
+	*/
+	public function getStatus()
+	{
+		return $this->status;
 	}
 
 }

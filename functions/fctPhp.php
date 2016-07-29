@@ -23,7 +23,7 @@ function getEntireTable($tableName){
 	{
 		include 'includes/connectDB.php';
 
-		$stmt = $conn->prepare("SELECT * FROM users");
+		$stmt = $conn->prepare("SELECT * FROM $tableName");
 		if ($stmt->execute()) {
 			$resp = $stmt->fetchAll();		
 		}
@@ -64,16 +64,17 @@ function postNewUser($name, $firstname, $email){
 
 }
 
-function postNewTicket($maker, $worker, $description){
+function postNewTicket($maker, $worker, $description, $status){
 	try
 	{	
 		include 'includes/connectDB.php';
 
-		$stmt = $conn->prepare("INSERT INTO tickets (maker, worker, description) 
-			VALUES (:maker, :worker, :description)");
+		$stmt = $conn->prepare("INSERT INTO tickets (maker, worker, description, status) 
+			VALUES (:maker, :worker, :description, :status)");
 		$stmt->bindParam(':maker', $maker);
 		$stmt->bindParam(':worker', $worker);
 		$stmt->bindParam(':description', $description);
+		$stmt->bindParam(':status', $status);
 
 		$stmt->execute();
 
