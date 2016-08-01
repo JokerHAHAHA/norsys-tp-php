@@ -13,16 +13,15 @@
 	<link rel="stylesheet" href="css/user.css">
 	<link rel="stylesheet" href="css/ticket.css">
 
-	<!-- JavaScript -->
-	<script type="text/javascript" src="functions/fctSave.js"></script>
-	<script type="text/javascript" src="jquery/initializations.js"></script>
-	<script type="text/javascript" src="jquery/ticketMoves.js"></script>
-
-	
 	<!-- JQUERY -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+	<!-- files -->
+	<script type="text/javascript" src="jquery/initializations.js"></script>
+	<script type="text/javascript" src="jquery/ticketMoves.js"></script>
 
+	<!-- JavaScript -->
+	<script type="text/javascript" src="functions/fctSave.js"></script>
 
 	<!-- Compiled and minified JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>

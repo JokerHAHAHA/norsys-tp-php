@@ -2,42 +2,6 @@
 <html lang="fr">
 <!-- head -->
 <?php include 'includes/head.php'; ?>
-<script>
-	// activate modal
-	$(document).ready(function(){
-		$('.modal-trigger').leanModal();
-	});
-	// activate select
-	$(document).ready(function() {
-		$('select').material_select();
-	});
-
-	$(function() {
-		$( ".draggable" ).draggable({
-			containment: $('.restrict'),
-			drag: function(){
-				currentId = $(this).find('#id').text();
-			}
-		});
-		$( "#droppableTodo" ).droppable({
-			drop: function(event, ui) {
-				// console.log(currentId);
-				$.getScript( "functions/fctSAve.js");
-				updateTicket(currentId, 'todo');
-				
-			}
-		});
-		$( "#droppableProcess" ).droppable({
-			drop: function(event, ui) {
-				// console.log(currentId);
-				$.getScript( "functions/fctSAve.js");
-				updateTicket(currentId, 'process');
-				
-			}
-		});
-	});
-
-</script>
 <body>
 
 	<!-- includes -->
