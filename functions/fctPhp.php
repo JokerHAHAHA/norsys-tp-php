@@ -90,5 +90,28 @@ function postNewTicket($maker, $worker, $description, $status){
 
 }
 
+function changeStatusTicket($targetId, $newStatus){
+	try
+	{	
+		include 'includes/connectDB.php';
+
+		$stmt = $conn->prepare("UPDATE tickets SET status = :status WHERE id = :id");
+		$stmt->bindParam(':id', $targetId);
+		$stmt->bindParam(':status', $newStatus);
+
+		$stmt->execute();
+
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+
+	$conn = null;
+
+	return true;
+
+}
+
 
 

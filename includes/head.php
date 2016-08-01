@@ -15,6 +15,8 @@
 
 	<!-- JavaScript -->
 	<script type="text/javascript" src="functions/fctSave.js"></script>
+	<script type="text/javascript" src="jquery/initializations.js"></script>
+	<script type="text/javascript" src="jquery/ticketMoves.js"></script>
 
 	
 	<!-- JQUERY -->

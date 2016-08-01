@@ -37,3 +37,24 @@ function addTicket () {
 
 	req.send(vars);
 }
+
+function updateTicket(num, status) {
+
+	console.log(num);
+	
+	// Create our XMLHttpRequest object
+	var req = new XMLHttpRequest();
+	
+	// Create some variables we need to send to our PHP file
+	var url = "updateTicket.php";
+	var id = num;
+	var status = status;
+	
+	var vars = "id="+id+"&status="+status;
+
+	req.open("POST", url, true);
+
+	req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+	req.send(vars);
+}
