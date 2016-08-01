@@ -113,5 +113,26 @@ function changeStatusTicket($targetId, $newStatus){
 
 }
 
+function deleteElement($targetId){
+	try
+	{	
+		include 'includes/connectDB.php';
+
+		$stmt = $conn->prepare("DELETE FROM tickets WHERE id = :id");
+		$stmt->bindParam(':id', $targetId);
+
+		$stmt->execute();
+
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+
+	$conn = null;
+
+	return true;
+
+}
 
 

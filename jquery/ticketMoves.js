@@ -7,18 +7,23 @@ $(function() {
     });
     $( "#droppableTodo" ).droppable({
         drop: function(event, ui) {
-                // console.log(currentId);
-                $.getScript( "functions/fctSAve.js");
-                updateTicket(currentId, 'todo');
-                
-            }
-        });
+            $.getScript( "functions/fctSAve.js");
+            updateTicket(currentId, 'todo');
+
+        }
+    });
     $( "#droppableProcess" ).droppable({
         drop: function(event, ui) {
-                // console.log(currentId);
-                $.getScript( "functions/fctSAve.js");
-                updateTicket(currentId, 'process');
-                
-            }
-        });
+            $.getScript( "functions/fctSAve.js");
+            updateTicket(currentId, 'process');
+
+        }
+    });
+    $( "#droppableDone" ).droppable({
+        drop: function(event, ui) {
+            $.getScript( "functions/fctSAve.js");
+            updateTicket(currentId, 'done');
+
+        }
+    });
 });

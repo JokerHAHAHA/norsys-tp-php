@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <!-- head -->
@@ -18,19 +19,22 @@
 		<!-- add user button -->
 		<div class="btn-add-user col s1 offset-s4 margin-top-2">
 			<h6>UTILISATEUR</h6>
-			<a class="btn-floating btn-large waves-effect waves-light red" href="./addUser.php"><i class="material-icons">+</i></a>
+			<a class="btn-floating btn-large waves-effect waves-light red" href="./addUser.php"><i class="material-icons">add</i></a>
 		</div>
 
 		<!-- add ticket button -->
 		<div class="btn-add-ticket col s1 offset-s1 margin-top-2">
 			<h6>TICKET</h6>
-			<a class="btn-floating btn-large waves-effect waves-light green modal-trigger" href="#addTicketModal"><i class="material-icons">+</i></a>
+			<a class="btn-floating btn-large waves-effect waves-light green modal-trigger" href="#addTicketModal"><i class="material-icons">add</i></a>
 		</div>
 	</div>
 
+
+	<!-- ======================================================= -->
+
 	<!-- kanban area -->
-	<div class="row margin-top-2 padding">
-		<div class="kanban center z-depth-3 col s12 restrict">
+	<div class="row margin-top-2">
+		<div class="kanban center z-depth-3 col s10 offset-s1 restrict">
 
 			<!-- todo area -->
 			<div id="droppableTodo" class="todo">
@@ -42,7 +46,18 @@
 						
 
 						?>
-						<div class="draggable card blue-grey darken-0 ticket">
+						<div class="draggable card blue-grey darken-0 ticket" id="<?php echo $ticket['id'];?>">
+							<!-- edit button -->
+							<div class="fixed-action-btn vertical btn-tiket-menu">
+								<a class="btn-floating btn-small orange">
+									<i class="large material-icons">menu</i>
+								</a>
+								<ul>
+									<li onclick="deleteTicket(<?php echo $ticket['id']; ?>)"><a class="btn-floating red"><i class="material-icons">delete</i></a></li>
+									<li><a class="btn-floating yellow darken-1"><i class="material-icons">mode_edit</i></a></li>
+								</ul>
+							</div><!-- end edit button -->
+
 							<div class="card-content white-text padding">
 								<?php
 								echo '<span class="card-title">N°= </span><span id="id" class="card-title">' . $ticket['id'] . '</span>';
@@ -73,13 +88,24 @@
 		<!-- in progress area -->
 		<div id="droppableProcess" class="process ui-widget-header">
 			<h3 class="tittle">IN PROCESS</h3>
+			<!-- begin ticket -->
 			<?php 
 			foreach (getEntireTable('tickets') as $ticket) {
 				if ($ticket['status'] == 'process') {
 
 
 					?>
-					<div class="draggable card blue-grey darken-0 ticket">
+					<div class="draggable card blue-grey darken-0 ticket" id="<?php echo $ticket['id'];?>">
+						<!-- edit button -->
+						<div class="fixed-action-btn vertical btn-tiket-menu">
+							<a class="btn-floating btn-small orange">
+								<i class="large material-icons">menu</i>
+							</a>
+							<ul>
+								<li onclick="deleteTicket(<?php echo $ticket['id']; ?>)"><a class="btn-floating red"><i class="material-icons">delete</i></a></li>
+								<li><a class="btn-floating yellow darken-1"><i class="material-icons">mode_edit</i></a></li>
+							</ul>
+						</div><!-- end edit button -->
 						<div class="card-content white-text padding">
 							<?php
 							echo '<span class="card-title">N°= </span><span id="id" class="card-title">' . $ticket['id'] . '</span>';
@@ -107,15 +133,27 @@
 	</div>
 
 	<!-- done area -->
-	<div class="done">
+	<div id="droppableDone" class="done">
 		<h3 class="tittle green-text">DONE</h3>
+		<!-- begin ticket -->
 		<?php 
 		foreach (getEntireTable('tickets') as $ticket) {
 			if ($ticket['status'] == 'done') {
 
 
 				?>
-				<div class="draggable card blue-grey darken-0 ticket">
+				<div class="draggable card blue-grey darken-0 ticket" id="<?php echo $ticket['id'];?>">
+					<!-- edit button -->
+					<div class="fixed-action-btn vertical btn-tiket-menu">
+						<a class="btn-floating btn-small orange">
+							<i class="large material-icons">menu</i>
+						</a>
+						<ul>
+							<li onclick="deleteTicket(<?php echo $ticket['id']; ?>)"><a class="btn-floating red"><i class="material-icons">delete</i></a></li>
+							<li><a class="btn-floating yellow darken-1"><i class="material-icons">mode_edit</i></a></li>
+						</ul>
+					</div><!-- end edit button -->
+
 					<div class="card-content white-text padding">
 						<?php
 						echo '<span class="card-title">N°= </span><span id="id" class="card-title">' . $ticket['id'] . '</span>';

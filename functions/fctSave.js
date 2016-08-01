@@ -39,8 +39,6 @@ function addTicket () {
 }
 
 function updateTicket(num, status) {
-
-	console.log(num);
 	
 	// Create our XMLHttpRequest object
 	var req = new XMLHttpRequest();
@@ -58,3 +56,44 @@ function updateTicket(num, status) {
 
 	req.send(vars);
 }
+
+function deleteTicket(num) {
+	
+	// Create our XMLHttpRequest object
+	var req = new XMLHttpRequest();
+	
+	// Create some variables we need to send to our PHP file
+	var url = "delete.php";
+	var id = num;
+	
+	var vars = "id="+id;
+
+	// remove element in the DOM
+	req.onreadystatechange = function() {
+		if (req.readyState == 4 && req.status == 200) {
+			document.getElementById(num).remove();
+		}
+	};
+
+	req.open("POST", url, true);
+
+	req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+	req.send(vars);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

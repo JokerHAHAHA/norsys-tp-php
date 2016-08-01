@@ -33,3 +33,11 @@
 .dropdown-info {
     line-height: 50px;
 }
+.btn-tiket-menu {
+    position: absolute;
+    top: -35px;
+    right: 0;
+}
+.btn-tiket-menu ul {
+    bottom: 45px;
+}
