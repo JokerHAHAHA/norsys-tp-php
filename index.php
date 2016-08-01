@@ -48,7 +48,7 @@
 						?>
 						<div class="draggable card blue-grey darken-0 ticket" id="<?php echo $ticket['id'];?>">
 							<!-- edit button -->
-							<div class="fixed-action-btn vertical btn-tiket-menu">
+							<div class="fixed-action-btn horizontal btn-ticket-menu">
 								<a class="btn-floating btn-small orange">
 									<i class="large material-icons">menu</i>
 								</a>
@@ -97,7 +97,7 @@
 					?>
 					<div class="draggable card blue-grey darken-0 ticket" id="<?php echo $ticket['id'];?>">
 						<!-- edit button -->
-						<div class="fixed-action-btn vertical btn-tiket-menu">
+						<div class="fixed-action-btn vertical btn-ticket-menu">
 							<a class="btn-floating btn-small orange">
 								<i class="large material-icons">menu</i>
 							</a>
@@ -144,7 +144,7 @@
 				?>
 				<div class="draggable card blue-grey darken-0 ticket" id="<?php echo $ticket['id'];?>">
 					<!-- edit button -->
-					<div class="fixed-action-btn vertical btn-tiket-menu">
+					<div class="fixed-action-btn vertical btn-ticket-menu">
 						<a class="btn-floating btn-small orange">
 							<i class="large material-icons">menu</i>
 						</a>
