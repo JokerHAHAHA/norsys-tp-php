@@ -1,5 +1,6 @@
 <?php
 
+namespace Poo;
 
 /**
  * to require dynamicaly
@@ -13,8 +14,8 @@ class Autoloader
 
     static function autoload($class){
 
+        $class = str_replace('Poo\\', '', $class);
         $class = str_replace('\\', '/', $class);
-        var_dump($class);
 
 
         require '../src/class/' . $class . '.php';
