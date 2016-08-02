@@ -1,0 +1,49 @@
+.kanban {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    border: 5px solid #d47c0b;
+    justify-content: space-around;
+    padding: 0!important;
+}
+.todo,
+.process,
+.done {
+    min-height: 450px;
+    width: 33.33%;
+}
+.process {
+    border-left: 5px solid #d47c0b;
+    border-right: 5px solid #d47c0b;
+}
+.ticket {
+    display: inline-block;
+    width: 30%;
+    height: 200px;
+}
+.description {
+    height: 90px;
+    overflow: scroll;
+}
+.dropdown-title {
+    line-height: 50px;
+}
+.dropdown-info {
+    line-height: 50px;
+}
+.btn-ticket-menu {
+    position: absolute;
+    top: -25px;
+    right: 0;
+}
+.btn-ticket-menu ul {
+    right: 42px!important;
+    top: -7%!important;
+    height: 0!important;
+    width: 78px!important;
+}
+.btn-ticket-menu.horizontal ul li {
+    margin: 15px 0 0 0;
+}

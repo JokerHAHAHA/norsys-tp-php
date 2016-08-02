@@ -14,7 +14,7 @@
 		<div class="btn-add-user">
 			<h6>UTILISATEUR</h6>
 			<a class="btn-floating btn-large waves-effect waves-light white txtOrange" href="./addUser.php">
-				<i class="material-icons">+</i>
+				<i class="material-icons">add</i>
 			</a>
 		</div>
 	</div>

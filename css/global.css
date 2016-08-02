@@ -4,12 +4,15 @@
 	font-family: Calibri;
 	color: #d47c0b;
 }
-/*html {
-	padding-top: 1%;
-}*/
+body {
+	overflow: none;
+}
 
 .padding {
-	padding: 2%;
+	padding: 2%!important;
+}
+.margin-top-2 {
+	margin-top: 2%;
 }
 .margin-top-5 {
 	margin-top: 5%;

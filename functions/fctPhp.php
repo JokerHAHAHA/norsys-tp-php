@@ -18,12 +18,21 @@ function checkEmail($email) {
 }
 
 function getEntireTable($tableName){
-	
-	include 'includes/connectDB.php';
 
-	$sql = "SELECT * FROM " . $tableName;
 
-	$resp = $conn->query($sql)->fetchAll();
+	try
+	{
+		include 'includes/connectDB.php';
+
+		$stmt = $conn->prepare("SELECT * FROM $tableName");
+		if ($stmt->execute()) {
+			$resp = $stmt->fetchAll();		
+		}
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
 
 	$conn = null;
 
@@ -31,13 +40,24 @@ function getEntireTable($tableName){
 
 }
 
-function postNewUser($tableName, $name, $firstname, $email){
-	
-	include 'includes/connectDB.php';
+function postNewUser($name, $firstname, $email){
+	try
+	{	
+		include 'includes/connectDB.php';
 
-	$sql = "INSERT INTO " . $tableName . " (name, first_name, email)" . " VALUES (" . $name . ", ". $firstname . ", ". $email . ")";
+		$stmt = $conn->prepare("INSERT INTO users (name, first_name, email) 
+			VALUES (:name, :first_name, :email)");
+		$stmt->bindParam(':name', $name);
+		$stmt->bindParam(':first_name', $firstname);
+		$stmt->bindParam(':email', $email);
 
-	$conn->query($sql);
+		$stmt->execute();
+
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
 
 	$conn = null;
 
@@ -45,3 +65,74 @@ function postNewUser($tableName, $name, $firstname, $email){
 
 }
 
+function postNewTicket($maker, $worker, $description, $status){
+	try
+	{	
+		include 'includes/connectDB.php';
+
+		$stmt = $conn->prepare("INSERT INTO tickets (maker, worker, description, status) 
+			VALUES (:maker, :worker, :description, :status)");
+		$stmt->bindParam(':maker', $maker);
+		$stmt->bindParam(':worker', $worker);
+		$stmt->bindParam(':description', $description);
+		$stmt->bindParam(':status', $status);
+
+		$stmt->execute();
+
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+
+	$conn = null;
+
+	return true;
+
+}
+
+
+function changeStatusTicket($targetId, $newStatus){
+	try
+	{	
+		include 'includes/connectDB.php';
+
+		$stmt = $conn->prepare("UPDATE tickets SET status = :status WHERE id = :id");
+		$stmt->bindParam(':id', $targetId);
+		$stmt->bindParam(':status', $newStatus);
+
+		$stmt->execute();
+
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+
+	$conn = null;
+
+	return true;
+
+}
+
+function deleteElement($targetId){
+	try
+	{	
+		include 'includes/connectDB.php';
+
+		$stmt = $conn->prepare("DELETE FROM tickets WHERE id = :id");
+		$stmt->bindParam(':id', $targetId);
+
+		$stmt->execute();
+
+	}
+	catch(PDOException $e)
+	{
+		echo "Error: " . $e->getMessage();
+	}
+
+	$conn = null;
+
+	return true;
+
+}
