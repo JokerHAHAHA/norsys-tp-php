@@ -81,7 +81,31 @@ function deleteTicket(num) {
 
 	req.send(vars);
 }
+function loadUpdateView(id, description) {
 
+	console.log(id);
+
+	document.getElementById('updateTitleModal').innerHTML = "MODIFIER UN TICKET " + id;
+	document.getElementById('updateDescriptionModal').innerHTML = description;
+
+	// // Create our XMLHttpRequest object
+	// var req = new XMLHttpRequest();
+
+	// // Create some variables we need to send to our PHP file
+	// var url = "Ticket.php";
+	// var maker = document.getElementById("maker").value;
+	// var worker = document.getElementById("worker").value;
+	// var description = document.getElementById("description").value;
+
+
+	// var vars = "maker="+maker+"&worker="+worker+"&description="+description;
+
+	// req.open("POST", url, true);
+
+	// req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+	// req.send(vars);
+}
 
 
 

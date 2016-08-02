@@ -40,7 +40,9 @@
 }
 .btn-ticket-menu ul {
     right: 42px!important;
-    top: 43%!important;
+    top: -7%!important;
+    height: 0!important;
+    width: 78px!important;
 }
 .btn-ticket-menu.horizontal ul li {
     margin: 15px 0 0 0;

@@ -54,7 +54,7 @@
 								</a>
 								<ul>
 									<li onclick="deleteTicket(<?php echo $ticket['id']; ?>)"><a class="btn-floating red"><i class="material-icons">delete</i></a></li>
-									<li><a class="btn-floating yellow darken-1"><i class="material-icons">mode_edit</i></a></li>
+									<li onclick="loadUpdateView(<?php echo $ticket['id']; ?>)"><a class="btn-floating yellow darken-1 modal-trigger" href="#updateTicketModal"><i class="material-icons">mode_edit</i></a></li>
 								</ul>
 							</div><!-- end edit button -->
 
@@ -150,7 +150,7 @@
 						</a>
 						<ul>
 							<li onclick="deleteTicket(<?php echo $ticket['id']; ?>)"><a class="btn-floating red"><i class="material-icons">delete</i></a></li>
-							<li><a class="btn-floating yellow darken-1"><i class="material-icons">mode_edit</i></a></li>
+							<li><a class="btn-floating yellow darken-1 modal-trigger"><i class="material-icons">mode_edit</i></a></li>
 						</ul>
 					</div><!-- end edit button -->
 
@@ -189,7 +189,7 @@
 
 
 
-<!-- Modal Structure -->
+<!-- Modal add ticket -->
 <div id="addTicketModal" class="modal modal-fixed-footer modal-add-ticket">
 	<div class="modal-content">
 		<h4 class="center">NOUVEAU TICKET</h4>
@@ -228,6 +228,66 @@
 						<div class="input-field col s12">
 							<textarea id="description" class="materialize-textarea"></textarea>
 							<label for="description">Description du ticket</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<button type="submit" id="submit" class="modal-action modal-close waves-effect waves-green btn-flat">Enregistrer</button>
+				<a href="./index.php" class="modal-action modal-close waves-effect waves-green btn-flat ">Annuler</a>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+<!-- ======================================================= -->
+
+
+
+<!-- Modal update ticket -->
+<div id="updateTicketModal" class="modal modal-fixed-footer modal-add-ticket">
+	<div class="modal-content">
+		<h4 id="updateTitleModal" class="center">NOUVEAU TICKET</h4>
+
+		<form method="post" onsubmit="updateTicket()">
+			<div class="row margin-top-10">
+				<div class="input-field col s5 offset-s1">
+					<select id="maker">
+						<option value="" disabled selected>Selectionner un collègue</option>
+						<?php
+						foreach (getEntireTable('users') as $user) {
+							echo '<option value="' . $user['first_name'] . '">' . $user['first_name'] . ' ' . $user['name'] . '</option>';
+						}
+						?>
+					</select>
+					<label>Créé par : </label>
+				</div>
+
+				<div class="input-field col s5">
+					<select id="worker">
+						<option value="" disabled selected>Selectionner un collègue</option>
+						<?php
+						foreach (getEntireTable('users') as $user) {
+							echo '<option value="' . $user['first_name'] . '">' . $user['first_name'] . ' ' . $user['name'] . '</option>';
+						}
+						?>
+					</select>
+					<label>Assigné à : </label>
+				</div>
+			</div>
+
+			<!-- description area -->
+			<div class="row margin-top-10">
+				<div class="col s12">
+					<div class="row">
+						<div class="input-field col s12">
+							<textarea id="description" class="materialize-textarea"></textarea>
+
+								
+
+								<label for="description">Description du ticket</label>
 						</div>
 					</div>
 				</div>
