@@ -15,6 +15,10 @@ class Ticket
 	}
 
 	/**
+	 * __MAKERS__
+	 * 
+	*/
+	/**
 	 * Get maker
 	 * 
 	 * @return string
@@ -55,32 +59,36 @@ class Ticket
 	}
 
 	/**
-	 * Get all table
+	 * __SETTERS__
 	 * 
-	 * @return array
 	*/
-	public function findAll()
+	/**
+	 * Set maker
+	 * 
+	 * 
+	*/
+	public function getMaker($maker)
 	{
-
-		try
-		{
-			include 'includes/connectDB.php';
-
-			$stmt = $conn->prepare("SELECT * FROM tickets");
-			if ($stmt->execute()) {
-				$resp = $stmt->fetchAll();		
-			}
-		}
-		catch(PDOException $e)
-		{
-			echo "Error: " . $e->getMessage();
-		}
-
-		$conn = null;
-
-		return $resp;
-
+		$this->maker = $maker;
 	}
 
+	/**
+	 * Set worker
+	 * 
+	 * 
+	*/
+	public function getWorker($worker)
+	{
+		$this->worker = $worker;
+	}
 
+	/**
+	 * Set description
+	 * 
+	 * 
+	*/
+	public function getDescription($description)
+	{
+		$this->description = $description;
+	}
 }
