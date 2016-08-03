@@ -4,7 +4,7 @@ use \Poo\HTML\Templates;
 use \Poo\Model\ConnectDB;
 use \Poo\Manager\UserManager;
 
-require '../src/class/Autoloader.php';
+require '../src/Autoloader.php';
 Autoloader::require();
 ?>
 

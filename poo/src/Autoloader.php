@@ -18,6 +18,6 @@ class Autoloader
         $class = str_replace('\\', '/', $class);
 
 
-        require '../src/class/' . $class . '.php';
+        require '../src/' . $class . '.php';
     }
 }
