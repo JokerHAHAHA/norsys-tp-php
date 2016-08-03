@@ -1,27 +1,35 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+    {{parent()}} | Utilisateurs
+{% endblock %}
+
+
 {% block body %}
-    {{parent()}}
+    <div class="user">
+        
+        {{parent()}}
 
-    {# add user button #}
-    <div class="row">
-        <div class="btn-add-user">
-            <h6>UTILISATEUR</h6>
-            <a class="btn-floating btn-large waves-effect waves-light white txtOrange" href="./addUser.php">
-                <i class="material-icons">add</i>
-            </a>
+        {# add user button #}
+        <div class="row">
+            <div class="btn-add-user">
+                <h6>UTILISATEUR</h6>
+                <a class="btn-floating btn-large waves-effect waves-light white txtOrange" href="./addUser.php">
+                    <i class="material-icons">add</i>
+                </a>
+            </div>
         </div>
+
+
+        {# list of users #}
+        <ul class="collection user-list">
+            {% for user in users %}
+                <li class="collection-item">
+                    <h5> {{user.first_name}} </h5><h5> {{user.name}} </h5><h5 class="secondary-content"> {{user.email}} </h5>
+                </li>
+            {% endfor %}
+        </ul>
     </div>
-
-
-    {# list of users #}
-    <ul class="collection user-list">
-        {% for user in users %}
-            <li class="collection-item">
-                <h5> {{user.first_name}} </h5><h5> {{user.name}} </h5><h5 class="secondary-content"> {{user.email}} </h5>
-            </li>
-        {% endfor %}
-    </ul>
 
 {% endblock %}
 
