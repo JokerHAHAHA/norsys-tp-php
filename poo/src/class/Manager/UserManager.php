@@ -10,7 +10,7 @@ class UserManager
 {
 
     /**
-     * finAll
+     * findAll users
      * 
      * @return array
      */
@@ -25,6 +25,32 @@ class UserManager
                 return $stmt->fetchAll();      
             }
         }
+        catch(PDOException $e)
+        {
+            echo "Error: " . $e->getMessage();
+        }
+
+    }
+
+    /**
+     * find one user by id
+     * 
+     * @return array
+     */
+    public static function findOneById($id)
+    {
+        try
+        {
+            $conn = ConnectDB::openConn();
+
+            $stmt = $conn->prepare("SELECT * FROM users WHERE id = :id");
+            $stmt->bindParam(':id', $id);
+
+            if ($stmt->execute()) {
+                return $stmt->fetchAll();      
+            }
+        }
+
         catch(PDOException $e)
         {
             echo "Error: " . $e->getMessage();

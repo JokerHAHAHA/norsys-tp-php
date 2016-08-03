@@ -1,0 +1,46 @@
+.btn-add-user {
+	display: inline-block;
+	height: 100px;
+	text-align: center;
+	z-index: 1000;
+}
+
+/*==========================================
+ADD USER
+==========================================*/
+.add-user label {
+	font-size: 150%!important;
+	color: #d47c0b!important;
+}
+.add-user input:focus {
+	border-bottom: 2px solid #d47c0b!important;
+	box-shadow: none!important;
+}
+
+/*=================END ADD USER=========================*/
+
+/*==========================================
+USER
+==========================================*/
+.user .btn-add-user {
+	position: absolute;
+	top: 0;
+	margin-top: 0!important;
+	margin-left: 1%!important;
+	color: white!important;
+}
+.user .btn-add-user i {
+	color: #d47c0b;
+}
+
+.user h5 {
+	display: inline-block;
+	padding-left: 1%;
+}
+.user-list {
+	margin-top: 4%;
+	border-top: none;
+}
+
+
+/*=================END USER=========================*/

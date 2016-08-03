@@ -1,0 +1,28 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Calibri;
+	color: #d47c0b;
+}
+body {
+	overflow: none;
+}
+
+.padding {
+	padding: 2%!important;
+}
+.margin-top-2 {
+	margin-top: 2%;
+}
+.margin-top-5 {
+	margin-top: 5%;
+}
+.margin-top-10 {
+	margin-top: 10%;
+}
+.center {
+	text-align: center;
+}
+.textOrange {
+	color: #d47c0b;
+}

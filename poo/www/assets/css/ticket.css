@@ -1,0 +1,19 @@
+.btn-add-ticket {
+	height: 100px;
+	text-align: center;
+}
+
+/*==========================================
+MODAL ADD TICKET
+==========================================*/
+
+.modal-add-ticket {
+    top: 3%!important;
+    height: 90%!important;
+    max-height: none;
+}
+.modal-content {
+    height: 100%!important;
+}
+
+/*=================END MODAL ADD TICKET=========================*/
