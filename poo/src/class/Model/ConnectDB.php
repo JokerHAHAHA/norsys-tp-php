@@ -8,10 +8,11 @@ namespace Poo\Model;
  */
 class ConnectDB
 {
-    private $dbOpen;
-
-
-    public function __construct()
+    /**
+     * Open conn
+     *  
+     */
+    public static function openConn()
     {
         try 
         {
@@ -19,8 +20,7 @@ class ConnectDB
             $conn = new \PDO("mysql:host=localhost;dbname=tuto_php", 'root', 'root');
 
             $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-            
-            $this->dbOpen = $conn;
+            return $conn;
 
         }
 
@@ -30,22 +30,14 @@ class ConnectDB
         }    
 
     }
-    /**
-     * Get conn
-     * 
-     * @return object
-     *  
-     */
-    public function getConn()
-    {
-        return $this->dbOpen;
-    }
+
+
     /**
      * Close conn
      *  
      */
-    public function closeConn()
+    public static function closeConn($conn)
     {
-        $this->dbOpen = null;
+        return $conn = null;
     }
 }

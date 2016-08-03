@@ -1,4 +1,5 @@
 <?php
+namespace Poo\Model;
 
 /**
  * CLass User
@@ -12,14 +13,19 @@ class User
      * @var string
      */
     private $name;
+
+
     /**
      * @var string
      */
     private $firstname;
+
+
     /**
      * @var string
      */
     private $email;
+    
 
     /**
      * Constructor
@@ -41,5 +47,29 @@ class User
      * @param name
      * @return string
      */
+    public function getName()
+    {
+        return $this->name;
+    }
+    /**
+     * Get firstname
+     * 
+     * @param firstname
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+    /**
+     * Get email
+     * 
+     * @param email
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
 
 }
