@@ -17,7 +17,6 @@ class UserManager
     public static function findAll()
     {
         $conn = ConnectDB::openConn();
-        print_r($conn);
         try
         {
             $stmt = $conn->prepare("SELECT * FROM users");
@@ -57,4 +56,21 @@ class UserManager
         }
 
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
