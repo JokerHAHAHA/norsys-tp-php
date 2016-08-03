@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Poo | Kanban</title>
+    <title>{% block title %} Kanban {% endblock %}</title>
 
     <!-- CSS -->
     <!-- Compiled and minified CSS -->
@@ -24,21 +24,29 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
 </head>
-<body>
-    
-    <!-- NAVBAR -->
-    <div class="navbar-fixed">
-        <nav>
-            <ul class="nav-bar">
-                <li>KANBAN by Jok</li>
-                <a href="./index.php"><li class="hover">BOARD</li></a>
-                <a href="./user.php"><li class="hover">UTILISATEUR</li></a>
-            </ul>
-        </nav>
-    </div>
+
+<body class="user">
+    {% block body %}
+
+        <!-- NAVBAR -->
+        <div class="navbar-fixed">
+            <nav>
+                <ul class="nav-bar">
+                    <li>KANBAN by Jok</li>
+                    <a href="./index.php"><li class="hover">BOARD</li></a>
+                    <a href="./user.php"><li class="hover">UTILISATEUR</li></a>
+                </ul>
+            </nav>
+        </div>
 
 
+
+
+
+
+
+
+    {% endblock %}
 </body>
-
 
 </html>
