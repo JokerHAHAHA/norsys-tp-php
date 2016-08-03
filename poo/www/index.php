@@ -1,33 +1,12 @@
 <?php
+include_once('../twig/lib/Twig/Autoloader.php');
+Twig_Autoloader::register();
 
-use \Poo\Autoloader;
-use \Poo\HTML\Templates;
-use \Poo\Model\ConnectDB;
-// use \Poo\Model\User;
-use \Poo\Manager\UserManager;
-
-require '../src/Autoloader.php';
-Autoloader::require();
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<!-- head -->
-<?php include './head.php'; ?>
-<body>
-    <?php echo Templates::loadNavbar(); ?>
-
-</body>
-</html>
-
-<?php 
-$user = UserManager::findOneById(1);
-
-var_dump($user);
-?>
+    $loader = new Twig_Loader_Filesystem('../views'); // Dossier contenant les templates
+    $twig = new Twig_Environment($loader, array('cache' => false));
 
 
-
-
-
+    echo $twig->render('index.tpl', array(
+        'moteur_name' => 'Twig'
+    ));
 
