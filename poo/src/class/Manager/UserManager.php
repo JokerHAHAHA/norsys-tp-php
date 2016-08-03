@@ -14,11 +14,12 @@ class UserManager
      * 
      * @return array
      */
-    static public function findAll()
+    public static function findAll()
     {
+        $conn = ConnectDB::openConn();
+        print_r($conn);
         try
         {
-            $conn = ConnectDB::openConn();
             $stmt = $conn->prepare("SELECT * FROM users");
             if ($stmt->execute()) {
                 return $stmt->fetchAll();      

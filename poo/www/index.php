@@ -3,7 +3,7 @@
 use \Poo\Autoloader;
 use \Poo\Model\ConnectDB;
 use \Poo\Model\User;
-use \Poo\Model\UserManager;
+use \Poo\Manager\UserManager;
 
 require '../src/class/Autoloader.php';
 Autoloader::require();
@@ -24,7 +24,7 @@ Autoloader::require();
 // }
 
 // =============================================================
-$conn = ConnectDB::openConn();
+// $conn = ConnectDB::openConn();
 
 // try
 // {
@@ -39,7 +39,9 @@ $conn = ConnectDB::openConn();
 //     echo "Error: " . $e->getMessage();
 // }
 
-print_r(UserManager::findAll());
+$users = UserManager::findAll();
+
+print_r($users[0]);
 
 
 
