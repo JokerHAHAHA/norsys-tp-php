@@ -11,12 +11,14 @@ namespace Poo\HTML;
 class Templates
 {
 
+    /**
+     * Load NavBar
+     * 
+     * @return html navbar
+     */
     public static function loadNavbar()
     {
-
-
-
-         return '<div class="navbar-fixed">
+        return '<div class="navbar-fixed">
                     <nav>
                         <ul class="nav-bar">
                             <li>KANBAN by Jok</li>
@@ -26,7 +28,7 @@ class Templates
                     </nav>
                 </div>';
 
-
     }
+
 
 }

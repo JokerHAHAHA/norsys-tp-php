@@ -17,8 +17,8 @@ Autoloader::require();
 
 <body class="user">
 
-
-<?php echo Templates::loadNavbar(); ?>
+    <!-- layout navbar -->
+    <?php echo Templates::loadNavbar();?>
 
     <!-- add user button -->
     <div class="row">
@@ -30,13 +30,11 @@ Autoloader::require();
         </div>
     </div>
 
-    <!-- get all users -->
-    <?php $datas = UserManager::findAll();?>
 
     <ul class="collection user-list">
         <?php
 
-        foreach ($datas as $user) {
+        foreach (UserManager::findAll() as $user) {
 
             echo '<li class="collection-item"><h5>' . $user['first_name'] . 
             '</h5><h5>' . $user['name'] . 
