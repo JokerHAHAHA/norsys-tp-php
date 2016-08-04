@@ -14,7 +14,7 @@
             {# add user button #}
             <div class="btn-add-user col s1 offset-s4 margin-top-2">
                 <h6>UTILISATEUR</h6>
-                <a class="btn-floating btn-large waves-effect waves-light red" href="./addUser.php"><i class="material-icons">add</i></a>
+                <a class="btn-floating btn-large waves-effect waves-light red modal-trigger" href="#addUserModal"><i class="material-icons">add</i></a>
             </div>
 
             {# add ticket button #}
@@ -27,6 +27,7 @@
         {{ include('kanban.html.twig') }}
 
         {{ include('modalAddTicket.html.twig') }}
+        {{ include('modalAddUser.html.twig') }}
 
     </div>
 
