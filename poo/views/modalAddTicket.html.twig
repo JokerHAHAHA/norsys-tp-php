@@ -1,4 +1,4 @@
-!-- Modal add ticket -->
+<!-- Modal add ticket -->
 <div id="addTicketModal" class="modal modal-fixed-footer modal-add-ticket">
     <div class="modal-content">
         <h4 class="center">NOUVEAU TICKET</h4>
@@ -8,11 +8,9 @@
                 <div class="input-field col s5 offset-s1">
                     <select id="maker">
                         <option value="" disabled selected>Selectionner un collègue</option>
-                        <?php
-                        foreach (getEntireTable('users') as $user) {
-                            echo '<option value="' . $user['first_name'] . '">' . $user['first_name'] . ' ' . $user['name'] . '</option>';
-                        }
-                        ?>
+                        {% for user in Users %}
+                            <option value="{{user.first_name}}">{{user.first_name}} {{user.name}}</option>
+                        {% endfor %}
                     </select>
                     <label>Créé par : </label>
                 </div>
@@ -20,11 +18,9 @@
                 <div class="input-field col s5">
                     <select id="worker">
                         <option value="" disabled selected>Selectionner un collègue</option>
-                        <?php
-                        foreach (getEntireTable('users') as $user) {
-                            echo '<option value="' . $user['first_name'] . '">' . $user['first_name'] . ' ' . $user['name'] . '</option>';
-                        }
-                        ?>
+                        {% for user in Users %}
+                            <option value="{{user.first_name}}">{{user.first_name}} {{user.name}}</option>
+                        {% endfor %}
                     </select>
                     <label>Assigné à : </label>
                 </div>
