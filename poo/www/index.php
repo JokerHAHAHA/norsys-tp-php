@@ -1,5 +1,6 @@
 <?php
 use \Poo\Autoloader;
+use \Poo\Manager\TicketManager;
 
 include_once('../twig/lib/Twig/Autoloader.php');
 Twig_Autoloader::register();
@@ -12,5 +13,5 @@ Autoloader::require();
 
 
 
-echo $twig->render('board.html.twig');
+echo $twig->render('board.html.twig', array('Tickets' => TicketManager::findAll()));
 

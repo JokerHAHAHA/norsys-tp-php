@@ -6,25 +6,27 @@
 
 
 {% block body %}
-        <div class="board">
+    <div class="board">
 
-    {{parent()}}
+        {{parent()}}
 
-    <div class="row">
-        {# add user button #}
-        <div class="btn-add-user col s1 offset-s4 margin-top-2">
-            <h6>UTILISATEUR</h6>
-            <a class="btn-floating btn-large waves-effect waves-light red" href="./addUser.php"><i class="material-icons">add</i></a>
+        <div class="row">
+            {# add user button #}
+            <div class="btn-add-user col s1 offset-s4 margin-top-2">
+                <h6>UTILISATEUR</h6>
+                <a class="btn-floating btn-large waves-effect waves-light red" href="./addUser.php"><i class="material-icons">add</i></a>
+            </div>
+
+            {# add ticket button #}
+            <div class="btn-add-ticket col s1 offset-s1 margin-top-2">
+                <h6>TICKET</h6>
+                <a class="btn-floating btn-large waves-effect waves-light green modal-trigger" href="#addTicketModal"><i class="material-icons">add</i></a>
+            </div>
         </div>
 
-        {# add ticket button #}
-        <div class="btn-add-ticket col s1 offset-s1 margin-top-2">
-            <h6>TICKET</h6>
-            <a class="btn-floating btn-large waves-effect waves-light green modal-trigger" href="#addTicketModal"><i class="material-icons">add</i></a>
-        </div>
+        {{ include('kanban.html.twig') }}
+
     </div>
-
-
 
 {% endblock %}
 
